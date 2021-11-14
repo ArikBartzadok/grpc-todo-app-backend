@@ -58,25 +58,20 @@ const gerarMetodosApp = () => ({
   }
 });
 
-// função que fabrica todos os métódos, injetando dependencias como redis, banco, etc.
 const fabricar = () => {
-  // const metodosApp = gerarMetodosApp();
   const padrao = metodoPadraoControleFabrica();
 
   // dentro da fabrica de middlewares devem vis as conexões com o mongodb e redis.
   // metodos devem vir de dentro da fabrica de apresentacao, i inseridos dentro de controles: {}
   const middlewares = {};
 
-  // os metodos devem ser jogados dentro de um app({}), e somente então exportados
-  // return app({ controles, middlewares });
   const controles = {
-    // esses parametros devem ser inseridos apenas dentro dos adaptadores...
-    padrao: (_, callback) => padrao(_, callback)
+    padrao
   };
 
-  // const appConfigurado = app({ controles, middlewares });
+  const appConfigurado = app({ controles, middlewares });
 
-  return controles;
+  return appConfigurado;
 };
 
 export default fabricar;

@@ -1,0 +1,5 @@
+Aqui devem ser geradas as intâmncias de conexão com o Redis e Mongo...
+Para depois serem injetadas dentro de "api/fabricarApp.js"
+
+fabricar cache
+fabricar dados

@@ -1,0 +1,26 @@
+{
+  "name": "ms-todo",
+  "version": "1.0.0",
+  "description": "NodeJS todo micro-service with gRPC protocol (HTTP 2.0)",
+  "main": "index.js",
+  "scripts": {
+    "dev": "sucrase-node microServico.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "NodeJS",
+    "gRPC",
+    "HTTP2",
+    "Todo"
+  ],
+  "author": "Diogo ferreira dos Santos",
+  "license": "MIT",
+  "devDependencies": {
+    "jsdoc": "^3.6.7"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "grpc": "^1.24.11",
+    "sucrase": "^3.20.3"
+  }
+}

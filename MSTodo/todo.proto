@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+/**
+ * Métodos (registros lógicos dos buffers de protocolo) do micro serviço Todo.
+ */
+service ServicoTodo {
+  rpc Listar (Vazio) returns (ListaTodo) {}
+  rpc Inserir (NovoItem) returns (ItemTodo) {}
+  rpc Selecionar (ItemID) returns (ItemTodo) {}
+}
+
+/**
+ * Mensagem de buffer de protocolo vazia.
+ */
+message Vazio {}
+
+/**
+ * Mensagem de buffer de protocolo para definir um todo como selecionado.
+ */
+message ItemID {
+  int32 id = 1;
+  bool selecionado = 2;
+}
+
+/**
+ * Mensagem de buffer de protocolo para definir um novo todo.
+ */
+message NovoItem {
+  string titulo = 1;
+}
+
+/**
+ * Mensagem de buffer de protocolo para obtenção de um objeto todo.
+ */
+message ItemTodo {
+  int32 id = 1;
+  bool finalizado = 2;
+  string titulo = 3;
+}
+
+/**
+ * Mensagem de buffer de protocolo para obtenção de uma lista de objetos todo.
+ */
+message ListaTodo {
+  repeated ItemTodo itemTodo = 1;
+}

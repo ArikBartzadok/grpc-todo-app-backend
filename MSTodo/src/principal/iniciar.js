@@ -13,7 +13,7 @@ servidor.addService(protocoloTodo.ServicoTodo.service, {
 
 const host = `${configs.app.url}:${configs.app.porta}`;
 const gatilho = () => {
-  console.log('[INFO] >> Servidor rodando');
+  console.log(`[INFO] >> Servidor rodando em: ${host}`);
   servidor.start();
 };
 

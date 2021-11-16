@@ -1,6 +1,7 @@
 import { default as app } from '../../../api/app';
 
 import { default as metodoPadraoControleFabrica } from '../apresentacao/controles/padrao/padrao';
+import { default as metodoListarControleFabrica } from '../apresentacao/controles/consultas/listar';
 
 // isso ficaria dentro de um metodo do repositorio
 const bancoFake = [
@@ -24,14 +25,6 @@ function alterarDados({ id, finalizado = false, titulo }) {
 
 // estes seriam varios arquivos dentro dos apresentacao/controles/
 const gerarMetodosApp = () => ({
-  // padrao: (_, callback) => {
-  //   callback(null, {
-  //     versao: 'x.y',
-  //     aplicacao: 'app',
-  //     autor: 'Diogo',
-  //     ambiente: 'DEV',
-  //   });
-  // },
   inserir: (chamada, callback) => {
     let todo = chamada.request;
 
@@ -60,13 +53,15 @@ const gerarMetodosApp = () => ({
 
 const fabricar = () => {
   const padrao = metodoPadraoControleFabrica();
+  const listar = metodoListarControleFabrica();
 
   // dentro da fabrica de middlewares devem vis as conexões com o mongodb e redis.
   // metodos devem vir de dentro da fabrica de apresentacao, i inseridos dentro de controles: {}
   const middlewares = {};
 
   const controles = {
-    padrao
+    padrao,
+    listar
   };
 
   const appConfigurado = app({ controles, middlewares });

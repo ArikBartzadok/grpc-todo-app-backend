@@ -1,0 +1,2 @@
+Aqui deve ficar um módulo que gerencia todas as entradas e saidas da aplicação
+ele deve ser o responsável por verificar se no callback gRPC deve ter, ou não, erros ou dados a serem retornados
